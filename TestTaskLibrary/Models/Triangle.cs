@@ -3,13 +3,55 @@ using TestTaskLibrary.Interfaces;
 
 namespace TestTaskLibrary.Models
 {
-    public class Triangle : IFigure
+    public class Triangle : IFigure, IStraight
     {
-        public double A { get; set; }
-        public double B { get; set; }
-        public double C { get; set; }
+        private double _a;
+        private double _b;
+        private double _c;
 
-        public bool RightTriangleCheck()
+        public double A
+        {
+            get => _a;
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Value cannot be less or equal 0", nameof(A));
+                }
+
+                _a = value;
+            }
+        }
+
+        public double B
+        {
+            get => _b;
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Value cannot be less or equal 0", nameof(B));
+                }
+
+                _b = value;
+            }
+        }
+
+        public double C
+        {
+            get => _c;
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Value cannot be less or equal 0", nameof(C));
+                }
+
+                _c = value;
+            }
+        }
+
+        public bool StraightCheck()
         {
             var powA = Math.Pow(A, 2);
             var powB = Math.Pow(B, 2);
@@ -21,11 +63,11 @@ namespace TestTaskLibrary.Models
 
             return sigCosA == 0 || sigCosB == 0 || sigCosC == 0;
         }
-        
-        public double CalculateSquare(Triangle figure)
+
+        public double CalculateSquare()
         {
-            var p = (figure.A + figure.B + figure.C) / 2;
-            return Math.Sqrt(p * (p - figure.A) * (p - figure.B) * (p - figure.C));
+            var p = (A + B + C) / 2;
+            return Math.Sqrt(p * (p - A) * (p - B) * (p - C));
         }
     }
 }

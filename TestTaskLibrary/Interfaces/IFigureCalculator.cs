@@ -2,6 +2,6 @@
 {
     public interface IFigureCalculator 
     {
-        public double CalculateSquare(IFigure figure);
+        double CalculateSquare(IFigure figure);
     }
 }

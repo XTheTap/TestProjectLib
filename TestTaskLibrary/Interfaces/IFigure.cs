@@ -2,6 +2,6 @@
 {
     public interface IFigure
     {
-        double 
+        double CalculateSquare();
     }
 }

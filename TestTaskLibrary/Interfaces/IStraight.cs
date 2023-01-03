@@ -2,6 +2,6 @@
 {
     public interface IStraight
     {
-        
+        bool StraightCheck();
     }
 }
